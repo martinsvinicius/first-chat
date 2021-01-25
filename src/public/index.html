@@ -8,14 +8,120 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.0/socket.io.js"></script>
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <form id="chat">
-      <input type="text" name="username" placeholder="Digite seu usuário" autocomplete="off">
-      <div class="messages"></div>
-      <input type="text" name="message" placeholder="Digite sua mensagem">
+      <input
+        type="text"
+        name="username"
+        placeholder="Digite seu usuário"
+        autocomplete="off"
+      />
+      <div id="messages"></div>
+      <input
+        type="text"
+        id="inputMessage"
+        name="message"
+        placeholder="Digite sua mensagem"
+        autocomplete="off"
+      />
       <button type="submit">Enviar</button>
     </form>
+
+    <script>
+      var socket = io();
+      var user = localStorage.getItem('user');
+
+      if (user) {
+        $('input[name=username]').val(user);
+      }
+
+      function renderMessage(message) {
+        $('#messages').append(
+          '<div class="message"><strong>' + message.author + '</strong>: ' + message.message + '</div>'
+        );
+      }
+
+      socket.on('previousMessage', function(messages){
+        for (i = 0; i < messages.length; i++) {
+          renderMessage(messages[i]);
+        }
+      });
+
+      socket.on('receivedMessage', function(message){
+        renderMessage(message);
+      });
+
+      $('#chat').submit(function(event){
+        event.preventDefault();
+
+        var author = $('input[name=username]').val();
+        var message = $('input[name=message]').val();
+
+        localStorage.setItem('user', author);
+
+        if (author.length && message.length) {
+          var messageObject = {
+            author,
+            message,
+          };
+
+          socket.emit('sendMessage', messageObject);
+
+          $('input[name=message]').val("");
+        }
+      });
+    </script>
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- SCRIPT DO SOCKET.IO DOCUMENTATION
+    <script>
+      var socket = io();
+
+      var chat = document.getElementById("chat");
+      var messages = document.getElementById("messages");
+      var input = document.getElementById("inputMessage");
+
+      chat.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        if (input.value) {
+          socket.emit("chat message", input.value);
+          input.value = "";
+        }
+      });
+
+      socket.on("chat message", function (msg) {
+        var newLi = document.createElement("p");
+        newLi.textContent = msg;
+        messages.appendChild(newLi);
+        window.scrollTo(0, document.body.scrollHeight);
+      });
+    </script>-->

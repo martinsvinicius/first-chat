@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -32,11 +33,18 @@ button {
   text-align: center;
   line-height: 50px;
   font-weight: bold;
-  color: #FFF;
+  color: #fff;
   margin-top: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
-.messages {
+button:hover {
+  background: rgb(0, 93, 139);
+}
+
+#messages {
   width: 600px;
   height: 400px;
   margin: 20px 0;
