@@ -12,17 +12,17 @@
 
 ## Hi, everyone 👋
 
-## 💻 About the Project
+## About the Project 💻
 
 This is my first realtime chat project. I made it just to pratice and learn about websockets.
 
-## 🚧 Built With
+## Built With 🚧
 
 - [Nodejs](https://nodejs.org/)
 - [Socket.io](https://socket.io/)
 - [Jquery](https://jquery.com/)
 
-## 📋 Getting Started
+## Getting Started 📋
 
 **Before start, in the project directory, you need run:**
 
@@ -59,7 +59,7 @@ This is my first realtime chat project. I made it just to pratice and learn abou
   yarn start
   ```
 
-## 🚀 Usage
+## Usage 🚀
 
 To see the magic of websockets, open [localhost](http://localhost:3000) in different browsers.
 
@@ -67,7 +67,7 @@ The result should look like this:
 
 <img src="./src/public/assets/usage-example.gif" width="100%"/>
 
-## 🐱‍👤 Author
+## Author 🐱‍👤
 
 **by: Vinicius Victor :)**
 
