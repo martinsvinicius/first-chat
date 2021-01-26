@@ -1,6 +1,8 @@
 html,
 body {
   height: 100%;
+  background-color: rgba(0, 0, 0, 0.514);
+  box-sizing: border-box;
 }
 
 * {
@@ -18,7 +20,7 @@ body {
 }
 
 input {
-  width: 600px;
+  width: 800px;
   border: 1px solid #ddd;
   height: 50px;
   padding: 0 20px;
@@ -26,7 +28,7 @@ input {
 }
 
 button {
-  width: 600px;
+  width: 800px;
   height: 50px;
   font-size: 14px;
   background: #069;
@@ -45,9 +47,11 @@ button:hover {
 }
 
 #messages {
-  width: 600px;
-  height: 400px;
+  width: 800px;
+  height: 600px;
   margin: 20px 0;
   border: 1px solid #ddd;
   padding: 20px;
+  overflow: auto;
+  background-color: white;
 }
