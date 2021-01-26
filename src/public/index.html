@@ -51,6 +51,9 @@
 
       socket.on('receivedMessage', function(message){
         renderMessage(message);
+
+        var div = $("#messages")[0];
+        div.scrollTop = div.scrollHeight;
       });
 
       $('#chat').submit(function(event){
@@ -75,53 +78,3 @@
     </script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- SCRIPT DO SOCKET.IO DOCUMENTATION
-    <script>
-      var socket = io();
-
-      var chat = document.getElementById("chat");
-      var messages = document.getElementById("messages");
-      var input = document.getElementById("inputMessage");
-
-      chat.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        if (input.value) {
-          socket.emit("chat message", input.value);
-          input.value = "";
-        }
-      });
-
-      socket.on("chat message", function (msg) {
-        var newLi = document.createElement("p");
-        newLi.textContent = msg;
-        messages.appendChild(newLi);
-        window.scrollTo(0, document.body.scrollHeight);
-      });
-    </script>-->
