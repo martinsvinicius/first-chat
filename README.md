@@ -77,6 +77,6 @@ The result should look like this:
 <a href="mailto:vinicius.victor.sm@gmail.com">
   <img alt="GitHub last commit" src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white">
 </a>
-<a href="https://www.linkedin.com/in/vinicius-victor-6baa961a5">
+<a href="https://www.linkedin.com/in/vinicius5g">
   <img alt="Perfil Linkedin" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">
 </a>
